@@ -9,14 +9,14 @@ import os
 
 # Connect to Database
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///cafe.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', "sqlite:///cafe.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['TopsecretAPIKEY'] = 'thecarlzkey'
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlihBXox7C0sKR6b'
+app.config['TopsecretAPIKEY'] = os.environ.get('TopsecretAPIKEY')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 Bootstrap(app)
 
 db = SQLAlchemy(app)
-del_key = 'mykey457'
+del_key = os.environ.get('del_key')
 
 
 class CreateCafeForm(FlaskForm):
@@ -99,4 +99,3 @@ def delete_cafe(cafe_id):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
