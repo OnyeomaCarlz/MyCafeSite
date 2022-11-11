@@ -1,0 +1,39 @@
+{% include "header.html" %}
+
+  <h2> LONDON </h2>
+
+  <p class="talk" > The best work and study-friendly cafes, restaurants, and hotel lobbies in London. Find venues with free and reliable Wi-Fi hotspots, ample power sockets, and comfy seating areas. </p>
+  <h3> WORK-FRIENDLY PLACES</h3>
+
+  <div class="container text-center">
+  {% for num in range(caf_len) %}
+    <div class="row cafe_row">
+      <div class="col">
+        <div class="row" >
+          {% if (num - 1) % 2 != 0 %}
+
+          <div class="col-8"><a href="{{cafes[num].map_url}}" > <img class="cafe_img" src="{{cafes[num ].img_url}}"/> </a> </div>
+          <div class="col-4">{{cafes[num ].name}} <hr> {{cafes[num].seats}} 🪑 {% if cafes[num].has_toilet %}| 🚽 {% endif %} {% if cafes[num].has_wifi %}| <i class="fa-solid fa-wifi"></i> {% endif %} {% if cafes[num].has_sockets %}| 🔌 {% endif %} {% if cafes[num].can_take_calls %}| 📞 {% endif %} <hr> <a class="nav-link" href="{{url_for('delete_cafe', cafe_id=cafes[num].id)}}">Delete</a> </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col">
+        <div class="row" >
+          {% if num + 1 < caf_len %}
+          {% if num % 2 == 0 %}
+
+        <div class="col-8" ><a href="{{cafes[num +1 ].map_url}}" ><img class="cafe_img" src="{{cafes[num + 1].img_url}} "/></a></div>
+        <div class="col-4">{{cafes[num +1].name}} <hr> {{cafes[num+1].seats}} 🪑 {% if cafes[num + 1].has_toilet %}| 🚽 {% endif %} {% if cafes[num + 1].has_wifi %}| <i class="fa-solid fa-wifi"></i> {% endif %} {% if cafes[num + 1].has_sockets %}| 🔌 {% endif %}  {% if cafes[num + 1].can_take_calls %}| 📞 {% endif %} <hr> <a class="nav-link" href="{{url_for('delete_cafe', cafe_id=cafes[num +1].id)}}">Delete</a></div>
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+   </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html>

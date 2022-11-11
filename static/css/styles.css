@@ -1,0 +1,27 @@
+body {
+    font-family: Montserrat;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+    padding: 1%;
+}
+
+h3{
+    padding: 2% 2%;
+}
+
+.talk{
+    text-align: center;
+    padding: 0 1% 1%;
+}
+
+.cafe_img{
+    width: 80%;
+    height: 80%;
+}
+
+.cafe_row {
+    padding : 2%;
+}
