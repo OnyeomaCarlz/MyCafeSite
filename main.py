@@ -9,7 +9,7 @@ import os
 
 # Connect to Database
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///blog.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///cafe.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['TopsecretAPIKEY'] = 'thecarlzkey'
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlihBXox7C0sKR6b'
